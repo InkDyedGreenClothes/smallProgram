@@ -1,0 +1,1 @@
+<view class="content"><view class="title"><button type="primary" plain="true" data-event-opts="{{[['tap',[['getUser',['$event']]]]]}}" bindtap="__e">开始小程序之旅</button></view></view>

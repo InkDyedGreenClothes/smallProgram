@@ -1,0 +1,24 @@
+
+.content {
+	height: 100vh;
+	width: 100vh;
+	/* background: url(../../static/welcome.jpg) no-repeat; */
+	background: -webkit-gradient(linear, left top, right bottom, from(#02153d), to(#003971));
+	background: -webkit-linear-gradient(left top, #02153d, #003971);
+	background: linear-gradient(left top, #02153d, #003971);
+	 /* background: linear-gradient(#02153d, #003971); */
+	/* background-size: cover; */
+}
+.title {
+	position: absolute;
+	left: 50%;
+	top: 70%;
+	-webkit-transform: translate(-50%,0);
+	        transform: translate(-50%,0);
+	color: #fff;
+}
+button {
+	border-color: #fff;
+	color: #fff;
+}
+

@@ -1,0 +1,1 @@
+<view class="content"><navigator url="/pages/mark/index?title=mark" hover-class="navigator-hover">跳转到新页面</navigator></view>
