@@ -7,15 +7,15 @@
 			}
 		},
 		{
-			"path": "pages/welcome/index",
+			"path": "pages/add/index",
 			"style": {
-				"navigationBarTitleText": "欢迎"
+				"navigationBarTitleText": "添加记录"
 			}
 		},
 		{
 			"path": "pages/mark/index",
 			"style": {
-				"navigationBarTitleText": "添加"
+				"navigationBarTitleText": "设置"
 			}
 
 		}
@@ -30,10 +30,10 @@
 				"selectedIconPath": "static/tabbar/home-active.png",
 				"text": "首页"
 			}, {
-				"pagePath": "pages/welcome/index",
+				"pagePath": "pages/add/index",
 				"iconPath": "static/tabbar/add.png",
 				"selectedIconPath": "static/tabbar/add-active.png",
-				"text": "添加"
+				"text": "添加记录"
 			},
 			{
 				"pagePath": "pages/mark/index",
@@ -43,7 +43,6 @@
 			}
 		]
 	},
-	"usingComponents": {},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
