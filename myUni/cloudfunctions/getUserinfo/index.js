@@ -20,15 +20,22 @@ exports.main = async (event, context) => {
 	// })
 	
 	// 这里获取到的 openId、 appId 和 unionId 是可信的，注意 unionId 仅在满足 unionId 获取条件时返回
-	let {
-		OPENID,
-		APPID,
-		UNITID,
-		NICKNAME
-	} = cloud.getWXContext();
-	return {
-		OPENID,
-		APPID,
-		UNITID
+	try{
+		let {
+			OPENID,
+			APPID,
+			UNITID,
+			NICKNAME
+		} = cloud.getWXContext();
+		return {
+			OPENID,
+			APPID,
+			UNITID
+		}
+	}catch(e){
+		//TODO handle the exception
+		console.log(e);
+		return e;
 	}
+	
 }
