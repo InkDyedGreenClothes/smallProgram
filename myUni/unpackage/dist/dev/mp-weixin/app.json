@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/welcome/index",
     "pages/index/index",
     "pages/add/index",
     "pages/mark/index"
@@ -13,7 +14,7 @@
   },
   "tabBar": {
     "color": "red",
-    "selectedColor": "pink",
+    "selectedColor": "#1296DB",
     "borderStyle": "black",
     "list": [
       {
@@ -36,5 +37,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap96.json"
 }

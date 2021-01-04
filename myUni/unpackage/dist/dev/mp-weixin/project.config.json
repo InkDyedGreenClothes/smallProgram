@@ -13,7 +13,6 @@
   "cloudfunctionRoot": "cloudfunctions/",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "list": []

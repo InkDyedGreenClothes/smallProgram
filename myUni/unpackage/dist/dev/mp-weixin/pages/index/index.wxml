@@ -1,1 +1,1 @@
-<view class="content"><navigator url="/pages/mark/index?title=mark" hover-class="navigator-hover"><view class="time-interval"><view class="time-text">{{''+intervalTime+''}}</view></view></navigator></view>
+<view class="content"><view class="time-interval"><view class="time-text">{{''+$root.m0+''}}</view><button type="default" data-event-opts="{{[['tap',[['messageSubscribe',['$event']]]]]}}" bindtap="__e">订阅</button></view></view>

@@ -1,14 +1,15 @@
 <template>
 	<view class="content">
 
-		<navigator url="/pages/mark/index?title=mark" hover-class="navigator-hover">
-			<view class="time-interval">
-				<view class="time-text">
-					{{ intervalTime }}
-				</view>
+		<!-- <navigator url="/pages/welcome/index?title=welcome" hover-class="navigator-hover">
+			
+		</navigator> -->
+		<view class="time-interval">
+			<view class="time-text">
+				{{ setIntervalTime('2020-05-21 21:40:00') }}
 			</view>
-		</navigator>
-
+			<button type="default" @click="messageSubscribe">订阅</button>
+		</view>
 
 		<!-- <uni-calendar :insert="true" :lunar="true" :start-date="'2019-3-2'" :end-date="'2019-5-20'" @change="change"></uni-calendar> -->
 
@@ -24,34 +25,36 @@
 		data() {
 			return {
 				interval: null,
-				intervalTime: ""
 			}
 		},
 		onLoad() {
-			// let app = getApp();
-			// wx.cloud.callFunction({
-			// 	name: 'getUserinfo',
-			// }).then(res => {
-			// 	// 将用户信息存储到本地存储
-			// 	let userInfo = res.result;
-			// 	console.log(userInfo)
-			// 	wx.setStorage('userInfo', userInfo);
-			// 	// 存储信息到全局变量
-			// 	app.globalData.userInfo = userInfo;
-			// 	console.log(res)
-			// }).catch(err => {
-			// 	console.log(err)
-			// })
-			this.getIntervalTime()
+
 		},
 		onShow() {
-			this.getIntervalTime()
+			// this.getIntervalTime()
 		},
 		onHide() {
 			console.log('我离开了要清除定时器')
-			clearInterval(this.getIntervalTime())
+			// clearInterval(this.getIntervalTime())
 		},
 		methods: {
+			messageSubscribe() {
+				console.log('消息订阅')
+				wx.cloud.callFunction({
+					name: 'subscribe',
+					data: {
+						data: {
+							time: '2021-01-04 17:00',
+							message: '我是到期时间'
+						},
+						tamplateid: 'J0G82EiLhgC08TPf6uumsWGia6Snd7NpmGZSUhpEfiQ'
+					}
+				}).then(res => {
+					console.log(res)
+				}).catch(err => {
+					console.log(err)
+				})
+			},
 			getU() {
 				let app = getApp();
 				console.log(app.globalData.userInfo)
@@ -62,10 +65,10 @@
 			getIntervalTime() {
 				let startTime = '2020-05-21 21:40:00';
 				// ${hours > 9 ? hours : '0' + hours}小时${minutes > 9 ? minutes : '0' + minutes}分钟${seconds > 9 ? seconds : '0' + seconds}秒
-				this.setIntervalTime(startTime, this.interval,this.intervalTime)
-				
+				this.setIntervalTime(startTime, 'interval', 'intervalTime')
+
 			},
-			setIntervalTime(startTime,fn,timeText) {
+			setIntervalTime(startTime) {
 				let nowDate = new Date();
 				let startDate = new Date(startTime);
 				let usedTime = nowDate.getTime() - startDate.getTime();
@@ -80,29 +83,29 @@
 				let seconds = Math.floor(leave3 / 1000)
 				seconds = seconds > 9 ? seconds : '0' + seconds;
 				let dateText = `${days}天`
-				
-				timeText = dateText;
-				
-				fn = setInterval(() => {
-					if (seconds < 59) {
-						seconds++;
-					} else {
-						seconds = 0;
-						if (minutes < 59) {
-							minutes++
-						} else {
-							minutes = 0;
-							if (hours < 23) {
-								hours++;
-							} else {
-								seconds = 0;
-								days++;
-							}
-						}
-					}
-					// ${hours > 9 ? hours : '0' + hours}小时${minutes > 9 ? minutes : '0' + minutes}分钟${seconds > 9 ? seconds : '0' + seconds}秒
-					timeText = dateText;
-				}, 1000)
+				return dateText;
+				// this[`${intervalTime}`] = dateText;
+
+				// this[`${fn}`] = setInterval(() => {
+				// 	if (seconds < 59) {
+				// 		seconds++;
+				// 	} else {
+				// 		seconds = 0;
+				// 		if (minutes < 59) {
+				// 			minutes++
+				// 		} else {
+				// 			minutes = 0;
+				// 			if (hours < 23) {
+				// 				hours++;
+				// 			} else {
+				// 				seconds = 0;
+				// 				days++;
+				// 			}
+				// 		}
+				// 	}
+				// 	// ${hours > 9 ? hours : '0' + hours}小时${minutes > 9 ? minutes : '0' + minutes}分钟${seconds > 9 ? seconds : '0' + seconds}秒
+				// 	this[`${intervalTime}`] = dateText;
+				// }, 1000)
 			}
 		}
 	}
